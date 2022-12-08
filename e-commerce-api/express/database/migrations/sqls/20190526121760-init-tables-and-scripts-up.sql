@@ -7,6 +7,15 @@ CREATE TABLE IF NOT EXISTS `products` (
     PRIMARY KEY (`id`)
 );
 
+DROP TABLE IF EXISTS `discounts`;
+CREATE TABLE IF NOT EXISTS `discounts` (
+    `id` INT,
+    `discount_percentage` INT,
+    `price` INT,
+
+    PRIMARY KEY (`id`)
+);
+
 DROP TABLE IF EXISTS `done_seed_files`;
 CREATE TABLE IF NOT EXISTS `done_seed_files` (
     `id` INT AUTO_INCREMENT,
@@ -30,6 +39,25 @@ CREATE PROCEDURE `create_product` (
     (
         p_id,
         p_name,
+        p_price
+    );
+END;
+
+DROP PROCEDURE IF EXISTS `create_discount`;
+CREATE PROCEDURE `create_discount` (
+    IN p_id INT,
+    IN p_discount_percentage INT,
+    IN p_price INT
+) BEGIN
+    INSERT INTO discounts (
+        id,
+        discount_percentage,
+        price
+    )
+    VALUES
+    (
+        p_id,
+        p_discount_percentage,
         p_price
     );
 END;

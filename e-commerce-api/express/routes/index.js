@@ -7,6 +7,7 @@ const controller = require('../controllers/main.controller')(repository);
 
 const seed = require('../seed/seed')(repository);
 seed.seedProducts();
+seed.seedDiscounts();
 
 /* GET home page. */
 router.get('/', controller.getHomePage);

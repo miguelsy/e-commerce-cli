@@ -14,6 +14,19 @@ const eCommerceRepository = function(db) {
         throw error;
       }
     },
+    createDiscount: async function(id, discountPercentage, price) {
+      try {
+        return await db.raw(`CALL create_discount(?, ?, ?);`, [
+          id,
+          discountPercentage,
+          price
+        ])
+      } catch (err) {
+        const error = new Error(err.message);
+        error.code = 500;
+        throw error;
+      }
+    },
     getDoneSeedFile: async function(filename) {
       try {
         const doneSeedFile = await db.raw(`CALL get_done_seed_file(?);`, [

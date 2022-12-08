@@ -1,0 +1,17 @@
+[
+    {
+      "uuid": 1,
+      "discountPercentage": "10",
+      "price": "20"
+    },
+    {
+      "uuid": 2,
+      "discountPercentage": "15",
+      "price": "50"
+    },
+    {
+      "uuid": 3,
+      "discountPercentage": "20",
+      "price": "100"
+    }
+]
