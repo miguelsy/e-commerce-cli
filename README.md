@@ -15,7 +15,7 @@ The instructions to run the project are as follows:
 
 ## Design
 
-The most important highlight of my design for this project is the separation of the NodeJS Client CLI and the NodeJS-Express API Server. Given that an e-commerce platform is used online, I created a NodeJS-Express API Server that has public endpoints that can accommodate HTTP API requests from any client sources. It also handles and stores data via an integration with a MySQL Server for added persistence and managability. Both the API and MySQL Servers are Dockerized to take advantage of containerization and allow tight integration and easy installation. The available endpoints exposed on the API Server are as follows:
+The most important highlight of my design for this project is the separation of the NodeJS Client CLI and the NodeJS-Express API Server. Given that an e-commerce platform is used online, I created a NodeJS-Express API Server that has public endpoints that can accommodate HTTP API requests from client sources. It also handles and stores data via an integration with a MySQL Server for added persistence and managability. Both the API and MySQL Servers are Dockerized to take advantage of containerization and allow tight integration and easy installation. The available endpoints exposed on the API Server are as follows:
 
 - Get Products (GET localhost:3000/products)
 - Get Discounts (GET localhost:3000/discounts)
