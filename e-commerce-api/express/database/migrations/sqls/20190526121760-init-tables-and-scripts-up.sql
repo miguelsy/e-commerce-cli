@@ -37,7 +37,9 @@ DROP PROCEDURE IF EXISTS `get_discounts`;
 CREATE PROCEDURE `get_discounts` () 
 BEGIN
     SELECT
-        *
+        id,
+        discount_percentage AS discountPercentage,
+        price
     FROM
         discounts;
 END;
