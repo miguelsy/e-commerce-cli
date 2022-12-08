@@ -73,7 +73,7 @@ const promptShoppingCartDisplay = async function() {
     shoppingCartDisplay = shoppingCartDisplay + `\nTOTAL: \$${totalPrice}\n`;
 
     console.log(shoppingCartDisplay);
-    const command = prompt('Press any key to go back to products page.');
+    prompt('Press any key to go back to products page.');
     promptProductsDisplay();
 }
 
