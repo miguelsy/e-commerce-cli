@@ -5,6 +5,10 @@ const {
 
 const baseUrl = 'http://localhost:3000'
 
+let products = [];
+let discounts = [];
+let shoppingCartProducts = [];
+
 getData = async function(type) {
     try {
         const getResponse = await axios.get(`${baseUrl}/${type}`)
@@ -14,10 +18,6 @@ getData = async function(type) {
         return [];
     }
 }
-
-let products = [];
-let discounts = [];
-let shoppingCartProducts = [];
 
 const promptProductsDisplay = async function() {
     let productDisplay = '\nEnter a product number to add to shopping cart or enter `C` to view your cart:\n';
