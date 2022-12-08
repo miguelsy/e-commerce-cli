@@ -5,6 +5,9 @@ const db = require('../db/db');
 const repository = require('../repositories/main.repository')(db);
 const controller = require('../controllers/main.controller')(repository);
 
+const seed = require('../seed/seed')(repository);
+seed.seedProducts();
+
 /* GET home page. */
 router.get('/', controller.getHomePage);
 

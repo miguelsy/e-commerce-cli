@@ -2,9 +2,9 @@ version: '3'
 
 services:
   e_commerce_api:
-    build: ./express
+    build: ./e-commerce-api/express
     volumes:
-      - ./express:/app
+      - ./e-commerce-api/express:/app
     ports:
       - 3000:3000
     environment:
@@ -15,7 +15,7 @@ services:
       DB_NAME: e_commerce_db
     command: 'bash start.sh e_commerce_db_server:3306'
     
-  e_commerce_server:
+  e_commerce_db_server:
     image: mysql:5.7.32
     ports:
       - 3306:3306
