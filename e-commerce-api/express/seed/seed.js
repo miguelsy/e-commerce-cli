@@ -18,7 +18,7 @@ const seed = function(repo) {
 
             await repo.createDoneSeedFile(productSeedFile);
         } catch (err) {
-            console.error('Error in seeding:', err);
+            console.error('Error in seeding products:', err);
         }
     }
 

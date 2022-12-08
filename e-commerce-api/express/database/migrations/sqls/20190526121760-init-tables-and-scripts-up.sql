@@ -9,9 +9,10 @@ CREATE TABLE IF NOT EXISTS `products` (
 
 DROP TABLE IF EXISTS `done_seed_files`;
 CREATE TABLE IF NOT EXISTS `done_seed_files` (
+    `id` INT AUTO_INCREMENT,
     `filename` VARCHAR(255),
 
-    PRIMARY KEY (`filename`)
+    PRIMARY KEY (`id`)
 );
 
 DROP PROCEDURE IF EXISTS `create_product`;

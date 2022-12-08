@@ -16,9 +16,10 @@ const eCommerceRepository = function(db) {
     },
     getDoneSeedFile: async function(filename) {
       try {
-        return await db.raw(`CALL get_done_seed_file(?);`, [
+        const doneSeedFile = await db.raw(`CALL get_done_seed_file(?);`, [
           filename
         ])
+        return doneSeedFile[0][0];
       } catch (err) {
         const error = new Error(err.message);
         error.code = 500;
@@ -27,10 +28,9 @@ const eCommerceRepository = function(db) {
     },
     createDoneSeedFile: async function(filename) {
       try {
-        const doneSeedFile = await db.raw(`CALL create_done_seed_file(?);`, [
+        return await db.raw(`CALL create_done_seed_file(?);`, [
           filename
         ])
-        return doneSeedFile[0][0];
       } catch (err) {
         const error = new Error(err.message);
         error.code = 500;
