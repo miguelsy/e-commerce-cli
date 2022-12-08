@@ -20,7 +20,7 @@ let discounts = [];
 let shoppingCartProducts = [];
 
 const promptProductsDisplay = async function() {
-    let productDisplay = '\nEnter a product number to add to shopping cart or enter `S` to view your cart:\n';
+    let productDisplay = '\nEnter a product number to add to shopping cart or enter `C` to view your cart:\n';
     let i = 1;
 
     for (const product of products) {
@@ -28,16 +28,16 @@ const promptProductsDisplay = async function() {
         i++;
     }
 
-    productDisplay = productDisplay + `S. Go to shopping cart\n`;
+    productDisplay = productDisplay + `C. Go to shopping cart\n`;
 
     console.log(productDisplay);
     const command = prompt('Input: ');
     
-    if (command == 0 || (/^\d+$/.test(command) && +command > products.length) || (!(/^\d+$/.test(command)) && command !== 'S')) {
+    if (command == 0 || (/^\d+$/.test(command) && +command > products.length) || (!(/^\d+$/.test(command)) && command !== 'C')) {
         console.log('\nInvalid input! Try again.\n')
         promptProductsDisplay();
     } else {
-        if (command != 'S') {
+        if (command != 'C') {
             const product = addProductToShoppingCart(command);
             console.log(`\nProduct (${product.name}) successfully added to shopping cart!\n`);
             promptProductsDisplay();
@@ -66,7 +66,7 @@ const promptShoppingCartDisplay = async function() {
     }
 
     if (appliedDiscount) {
-        shoppingCartDisplay = shoppingCartDisplay + `\nDiscount Applied: ${appliedDiscount.discountPercentage} off on total greater than ${appliedDiscount.price}`;
+        shoppingCartDisplay = shoppingCartDisplay + `\nDiscount Applied: ${appliedDiscount.discountPercentage}% off on total greater than \$${appliedDiscount.price}`;
         totalPrice = (totalPrice - (totalPrice * (+appliedDiscount.discountPercentage/100))).toFixed(2);
     }
 
