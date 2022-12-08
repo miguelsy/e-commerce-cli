@@ -12,4 +12,7 @@ seed.seedDiscounts();
 /* GET home page. */
 router.get('/', controller.getHomePage);
 
+router.get('/products', controller.getProducts);
+router.get('/discounts', controller.getDiscounts);
+
 module.exports = router;

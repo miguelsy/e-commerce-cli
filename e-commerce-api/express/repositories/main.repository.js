@@ -1,6 +1,16 @@
 const eCommerceRepository = function(db) {
   // repo 
   const repo = {
+    getProducts: async function() {
+      try {
+        const products = await db.raw(`CALL get_products();`);
+        return products[0][0];
+      } catch (err) {
+        const error = new Error(err.message);
+        error.code = 500;
+        throw error;
+      }
+    },
     createProduct: async function(id, name, price) {
       try {
         return await db.raw(`CALL create_product(?, ?, ?);`, [
@@ -8,6 +18,16 @@ const eCommerceRepository = function(db) {
           name,
           price
         ])
+      } catch (err) {
+        const error = new Error(err.message);
+        error.code = 500;
+        throw error;
+      }
+    },
+    getDiscounts: async function() {
+      try {
+        const discounts = await db.raw(`CALL get_discounts();`);
+        return discounts[0][0];
       } catch (err) {
         const error = new Error(err.message);
         error.code = 500;

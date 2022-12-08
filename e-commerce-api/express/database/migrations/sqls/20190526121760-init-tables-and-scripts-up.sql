@@ -24,6 +24,24 @@ CREATE TABLE IF NOT EXISTS `done_seed_files` (
     PRIMARY KEY (`id`)
 );
 
+DROP PROCEDURE IF EXISTS `get_products`;
+CREATE PROCEDURE `get_products` () 
+BEGIN
+    SELECT
+        *
+    FROM
+        products;
+END;
+
+DROP PROCEDURE IF EXISTS `get_discounts`;
+CREATE PROCEDURE `get_discounts` () 
+BEGIN
+    SELECT
+        *
+    FROM
+        discounts;
+END;
+
 DROP PROCEDURE IF EXISTS `create_product`;
 CREATE PROCEDURE `create_product` (
     IN p_id INT,
