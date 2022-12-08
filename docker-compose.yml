@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  e_commerce_api:
+    build: ./express
+    volumes:
+      - ./express:/app
+    ports:
+      - 3000:3000
+    environment:
+      DB_HOSTNAME: e_commerce_db_server
+      DB_PORT: 3306
+      DB_USERNAME: root
+      DB_PASSWORD: root
+      DB_NAME: e_commerce_db
+    command: 'bash start.sh e_commerce_db_server:3306'
+    
+  e_commerce_server:
+    image: mysql:5.7.32
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=e_commerce_db
